@@ -23,10 +23,25 @@ class index {
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }
+        // for (int k = 0; k < arr.length; k++) {
+        //     System.out.println(arr[k] + "  " + "elem");
+        // }
+        //     int max = arr[0];
+        //     for (int i = 0; i < arr.length; i++) {
+        //         if (arr[i] > max) {
+        //             max = arr[i];
+        //         }
+        //     }
+        //     System.out.println(max);
+        // }
+
+        int min = arr[0];
         for (int k = 0; k < arr.length; k++) {
-            System.out.println(arr[k] + "  " + "elem");
+            if (arr[k] < min) {
+                min = arr[k];
+            }
         }
+        System.out.println(min);
 
     }
-
 }
