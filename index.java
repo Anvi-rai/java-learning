@@ -61,18 +61,20 @@ class index {
                 }
             }
         }
-
+        int maximum = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] > maximum) {
+                maximum = arr1[i];
+            }
+        }
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] > maximum) {
+                maximum = arr2[i];
+            }
+        }
+        System.out.println("Maximum element: " + maximum);
     }
-} // int max = arr1[0] + arr2[0];
-// for (int i = 0; i < arr1.length; i++) {
-//     for (int j = 0; j < arr2.length; j++) {
-//         if (arr1[i] + arr2[j] > max) {
-//             max = arr1[i] + arr2[j];
-//         }
-//     }
-// }
-// System.out.println(max);
-// int[] marge = new int[arr1.length + arr2.length];
+} // int[] marge = new int[arr1.length + arr2.length];
 // for (int i = 0; i < arr1.length; i++) {
 //     marge[i] = arr1[i];
 // }
