@@ -53,17 +53,28 @@ class index {
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 3, 4, 5,};
         int[] arr2 = {4, 2, 4, 2, 4};
-        int sum = 0;
+        int[] marge = new int[arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++) {
-            sum = sum + arr1[i] + arr2[i];
-
-            // for (int j = 0; j < arr2.length; j++) {
-            //     if (arr1[i] == arr2[j]) {
-            //         sum += arr1[i];
-            //         break; // To avoid adding the same element multiple times
-            //     }
-            // }
+            marge[i] = arr1[i];
         }
-        System.out.println(sum);
+        for (int i = 0; i < arr2.length; i++) {
+            marge[arr1.length + i] = arr2[i];
+        }
+        for (int i = 0; i < marge.length; i++) {
+            System.out.println(marge[i]);
+        }
+        //         int sum = 0
+        ;
+//         for (int i = 0; i < arr1.length; i++) {
+//             sum = sum + arr1[i] + arr2[i];
+
+//             // for (int j = 0; j < arr2.length; j++) {
+//             //     if (arr1[i] == arr2[j]) {
+//             //         sum += arr1[i];
+//             //         break; // To avoid adding the same element multiple times
+//             //     }
+//             // }
+//         }
+//         System.out.println(sum);
     }
 }
