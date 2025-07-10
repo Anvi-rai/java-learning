@@ -65,23 +65,86 @@
 //         System.out.println("Max Area: " + maxArea);
 //     }
 // }
-class Solution {
+// class Solution {
+//     // public int maxSubArray(int[] nums) {
+//     //     int maxsum = nums[0];
+//     //     int currentsum = nums[0];
+//     //     for (int i = 1; i < nums.length; i++) {
+//     //         currentsum = Math.max(nums[i], currentsum + nums[i]);
+//     //         maxsum = Math.max(maxsum, currentsum);
+//     //     }
+//     //     return maxsum;
+//     //}
+//     static public int maxSubArraySum(int[] nums) {
+//         int max = Integer.MIN_VALUE;
+//         int k = 3;
+//         int n = nums.length;
+//         int windowSum = 0;
+//         for (int i = 0; i < n - k + 1; i++) {
+//             windowSum += nums[i];
+//             for (int j = i; j < i + k; j++) {
+//                 windowSum += nums[i] - nums[i - k];
+//             }
+//             max = Math.max(max, windowSum);
+//         }
+//         return max;
+//     }
+//     public static void main(String[] args) {
+//         Solution solution = new Solution();
+//         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+//         int maxSubArraySum = solution.maxSubArraySum(nums);
+//         System.out.println("Max SubArray Sum: " + maxSubArraySum);
+//     }
+// }
+// class Solution {
+//     public static void main(String[] args) {
+//         int[] arr = {2, 3, 4, 5, 6, 7,};
+//         int k = 3;
+//         int even = 0;
+//         for (int i = k; i < arr.length; i++) {
+//             if (arr[i] % 2 == 0) {
+//                 even++;
+//             }
+//         }
+//         System.out.println(even);
+//     }
+//     else if(arr[i-k] % = 0) {
+//         even--;
+//         System.out.println(even);
+//     }
+// }
+// 
+import java.util.HashSet;
+import java.util.Scanner;
 
-    public int maxSubArray(int[] nums) {
-        int maxsum = nums[0];
-        int currentsum = nums[0];
+public class Solution {
 
-        for (int i = 1; i < nums.length; i++) {
-            currentsum = Math.max(nums[i], currentsum + nums[i]);
-            maxsum = Math.max(maxsum, currentsum);
+    public static int lengthOfLongestSubstring(String s) {
+        int maxlen = 0;
+        HashSet<Character> set = new HashSet<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (set.contains(ch)) {
+                maxlen = Math.max(maxlen, set.size());
+                set.clear();
+                i--;
+            } else {
+                set.add(ch);
+            }
         }
-        return maxsum;
+
+        maxlen = Math.max(maxlen, set.size());
+
+        return maxlen;
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int maxSubArraySum = solution.maxSubArray(nums);
-        System.out.println("Max Subarray Sum: " + maxSubArraySum);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        int result = lengthOfLongestSubstring(input);
+        System.out.println("Length of longest substring without repeating characters: " + result);
     }
 }
